@@ -1,0 +1,156 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE, SOCIAL_LINKS } from '../consts';
+
+// 取最新的 5 篇文章显示在首页
+const posts = (await getCollection('blog'))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 5);
+
+// ↓↓↓ 改这里就是改首页的自我介绍 ↓↓↓
+const NAME = '你的名字';
+const TAGLINE = '一句话介绍自己，比如：做前端 / 在读 XX / 喜欢折腾工具链。';
+const PROJECTS = [
+	{
+		name: '项目一',
+		desc: '一句话说明它是干什么的、解决了什么问题。',
+		href: 'https://github.com/MrFlow-mean',
+	},
+	{
+		name: '项目二',
+		desc: '换成你自己的项目，删掉不需要的条目即可。',
+		href: 'https://github.com/MrFlow-mean',
+	},
+];
+---
+
+<!doctype html>
+<html lang="zh-CN">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="hero">
+				<h1>你好，我是 {NAME} 👋</h1>
+				<p class="tagline">{TAGLINE}</p>
+				<p class="links">
+					<a href={SOCIAL_LINKS.github} target="_blank" rel="noopener">GitHub</a>
+					<span aria-hidden="true">·</span>
+					<a href={SOCIAL_LINKS.email}>Email</a>
+					<span aria-hidden="true">·</span>
+					<a href="/rss.xml">RSS</a>
+				</p>
+			</section>
+
+			<section>
+				<h2>最近写的</h2>
+				{
+					posts.length === 0 ? (
+						<p class="empty">
+							还没有文章。在 <code>src/content/blog/</code> 里新建一个 <code>.md</code> 文件就能发第一篇。
+						</p>
+					) : (
+						<ul class="post-list">
+							{posts.map((post) => (
+								<li>
+									<a href={`/blog/${post.id}/`}>
+										<span class="title">{post.data.title}</span>
+										<span class="date">
+											<FormattedDate date={post.data.pubDate} />
+										</span>
+									</a>
+									<p class="desc">{post.data.description}</p>
+								</li>
+							))}
+						</ul>
+					)
+				}
+				<p><a href="/blog">查看全部文章 →</a></p>
+			</section>
+
+			<section>
+				<h2>做过的东西</h2>
+				<ul class="project-list">
+					{
+						PROJECTS.map((p) => (
+							<li>
+								<a href={p.href} target="_blank" rel="noopener">
+									{p.name}
+								</a>
+								<p class="desc">{p.desc}</p>
+							</li>
+						))
+					}
+				</ul>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.hero {
+		margin-bottom: 3rem;
+	}
+	.hero h1 {
+		margin-bottom: 0.4em;
+	}
+	.tagline {
+		font-size: 1.15rem;
+		color: rgb(var(--gray-dark));
+		margin: 0 0 1em 0;
+	}
+	.links {
+		color: rgb(var(--gray));
+	}
+	.links a {
+		margin: 0 0.15em;
+	}
+	section {
+		margin-bottom: 2.5rem;
+	}
+	.post-list,
+	.project-list {
+		list-style: none;
+		padding: 0;
+		margin: 0 0 1em 0;
+	}
+	.post-list li,
+	.project-list li {
+		padding: 0.9em 0;
+		border-bottom: 1px solid rgb(var(--gray-light));
+	}
+	.post-list li a {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		gap: 1em;
+		text-decoration: none;
+	}
+	.post-list .title {
+		font-weight: 700;
+		color: rgb(var(--black));
+	}
+	.post-list li a:hover .title {
+		color: rgb(var(--accent));
+	}
+	.date {
+		flex-shrink: 0;
+		color: rgb(var(--gray));
+		font-size: 0.9em;
+	}
+	.desc {
+		margin: 0.35em 0 0 0;
+		color: rgb(var(--gray));
+		font-size: 0.95em;
+	}
+	.empty {
+		color: rgb(var(--gray));
+	}
+</style>

@@ -45,7 +45,8 @@ git push
 
 ## 想改样式的话
 
-- 全站配色和字体：`src/styles/global.css`
-- 首页：`src/pages/index.astro`
-- 导航栏 / 页脚：`src/components/Header.astro`、`Footer.astro`
-- 站点标题、署名、社交链接：`src/consts.ts`
+- 首页的全部文字（介绍、作品、经历、教育、荣誉）：`src/data/profile.ts`
+- 首页配色和排版：`src/styles/home.css`
+- 左侧栏结构：`src/components/Sidebar.astro`
+- 博客页面的样式：`src/styles/global.css`
+- 站点标题、署名：`src/consts.ts`

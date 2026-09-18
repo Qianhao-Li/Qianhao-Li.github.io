@@ -1,0 +1,448 @@
+/* 首页（个人主页）专用样式。博客页面用的是 global.css，两者互不影响。 */
+
+:root {
+	--ink: #16181d;
+	--ink-soft: #454b57;
+	--ink-mute: #787f8d;
+	--accent: #2f5d8f;
+	--rule: #e6e8ec;
+	--surface: #f7f8fa;
+	--font-sans:
+		-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB',
+		'Microsoft YaHei', sans-serif;
+	--font-serif:
+		'Source Serif 4', 'Iowan Old Style', Georgia, 'Songti SC', 'Noto Serif CJK SC', serif;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background: #fff;
+	color: var(--ink-soft);
+	font-family: var(--font-sans);
+	font-size: 16px;
+	line-height: 1.75;
+	-webkit-font-smoothing: antialiased;
+}
+
+a {
+	color: inherit;
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+/* ---------- 两栏布局 ---------- */
+
+.page {
+	max-width: 1120px;
+	margin: 0 auto;
+	padding: 5rem 2rem 5rem;
+	display: grid;
+	grid-template-columns: 240px 1fr;
+	gap: 5rem;
+	align-items: start;
+}
+
+.page > .sidebar {
+	position: sticky;
+	top: 5rem;
+}
+
+/* ---------- 区块通用 ---------- */
+
+.section + .section {
+	margin-top: 4.5rem;
+}
+
+.section-head {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 1.5rem;
+	padding-bottom: 0.75rem;
+	border-bottom: 1px solid var(--rule);
+	margin-bottom: 2rem;
+}
+
+.section-title {
+	font-family: var(--font-serif);
+	font-size: 1.5rem;
+	font-weight: 600;
+	color: var(--ink);
+	margin: 0;
+	line-height: 1.3;
+}
+
+.section-meta {
+	flex-shrink: 0;
+	font-size: 0.6875rem;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--ink-mute);
+}
+
+/* ---------- 关于我 ---------- */
+
+.eyebrow {
+	display: flex;
+	align-items: center;
+	gap: 0.85rem;
+	font-size: 0.6875rem;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: var(--ink-mute);
+	margin: 0;
+}
+
+.eyebrow::after {
+	content: '';
+	width: 2.5rem;
+	height: 1px;
+	background: var(--rule);
+}
+
+.headline {
+	font-family: var(--font-serif);
+	font-size: clamp(1.9rem, 3.6vw, 2.6rem);
+	font-weight: 600;
+	line-height: 1.3;
+	color: var(--ink);
+	margin: 1.4rem 0 1.8rem;
+}
+
+.headline span {
+	display: block;
+}
+
+.headline span + span {
+	color: var(--ink-mute);
+	font-weight: 400;
+}
+
+.about-text p {
+	margin: 0 0 1rem;
+	font-size: 0.975rem;
+}
+
+.about-text strong {
+	color: var(--ink);
+	font-weight: 600;
+}
+
+.tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	margin-top: 1.75rem;
+	padding: 0;
+	list-style: none;
+}
+
+.tags li {
+	font-size: 0.75rem;
+	letter-spacing: 0.02em;
+	color: var(--ink-mute);
+	border: 1px solid var(--rule);
+	border-radius: 999px;
+	padding: 0.25rem 0.75rem;
+}
+
+/* ---------- 作品卡片 ---------- */
+
+.work {
+	padding: 1.9rem 0;
+	border-top: 1px solid var(--rule);
+}
+
+.work:first-child {
+	border-top: none;
+	padding-top: 0;
+}
+
+.work-top {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	gap: 1rem;
+	font-size: 0.6875rem;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--ink-mute);
+}
+
+.work-index {
+	color: var(--accent);
+	font-variant-numeric: tabular-nums;
+}
+
+.work-title {
+	font-family: var(--font-serif);
+	font-size: 1.3rem;
+	font-weight: 600;
+	color: var(--ink);
+	margin: 0.9rem 0 0.2rem;
+	line-height: 1.35;
+}
+
+.work-subtitle {
+	margin: 0;
+	font-size: 0.925rem;
+	color: var(--ink-soft);
+}
+
+.work-byline {
+	margin: 0.65rem 0 0;
+	font-size: 0.8125rem;
+	color: var(--ink-mute);
+}
+
+.work-desc {
+	margin: 1rem 0 0;
+	font-size: 0.925rem;
+}
+
+.work-note {
+	margin: 0.5rem 0 0;
+	font-size: 0.875rem;
+	color: var(--ink-mute);
+}
+
+.work-links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	margin-top: 1.15rem;
+}
+
+.work-links a {
+	font-size: 0.75rem;
+	color: var(--ink-soft);
+	text-decoration: none;
+	border: 1px solid var(--rule);
+	border-radius: 4px;
+	padding: 0.28rem 0.7rem;
+	transition:
+		border-color 0.15s ease,
+		color 0.15s ease;
+}
+
+.work-links a:hover {
+	color: var(--accent);
+	border-color: var(--accent);
+}
+
+/* ---------- 经历时间线 ---------- */
+
+.exp {
+	display: grid;
+	grid-template-columns: 9.5rem 1fr;
+	gap: 1.5rem;
+	padding: 1.4rem 0;
+	border-top: 1px solid var(--rule);
+}
+
+.exp:first-child {
+	border-top: none;
+	padding-top: 0;
+}
+
+.exp-period {
+	font-size: 0.8125rem;
+	color: var(--ink-mute);
+	font-variant-numeric: tabular-nums;
+}
+
+.exp-org {
+	font-size: 1rem;
+	font-weight: 600;
+	color: var(--ink);
+	margin: 0;
+}
+
+.badge {
+	display: inline-block;
+	margin-left: 0.5rem;
+	font-size: 0.6875rem;
+	font-weight: 400;
+	letter-spacing: 0.06em;
+	color: var(--accent);
+	border: 1px solid currentColor;
+	border-radius: 3px;
+	padding: 0 0.4rem;
+	vertical-align: 2px;
+}
+
+.exp-role {
+	margin: 0.2rem 0 0;
+	font-size: 0.875rem;
+	color: var(--ink-mute);
+}
+
+.exp-desc {
+	margin: 0.5rem 0 0;
+	font-size: 0.925rem;
+}
+
+/* ---------- 教育 ---------- */
+
+.edu-school {
+	font-size: 0.6875rem;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--ink-mute);
+	margin: 0;
+}
+
+.edu-degree {
+	font-family: var(--font-serif);
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: var(--ink);
+	margin: 0.5rem 0 0.3rem;
+}
+
+.edu-line {
+	margin: 0;
+	font-size: 0.9rem;
+}
+
+.edu-meta {
+	margin: 0.6rem 0 0;
+	font-size: 0.875rem;
+	color: var(--ink-mute);
+}
+
+.teaching {
+	margin-top: 1.75rem;
+	padding-top: 1.5rem;
+	border-top: 1px solid var(--rule);
+}
+
+.teaching h3 {
+	font-size: 0.6875rem;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--ink-mute);
+	font-weight: 500;
+	margin: 0 0 0.8rem;
+}
+
+.teaching ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.teaching li {
+	display: flex;
+	justify-content: space-between;
+	gap: 1rem;
+	font-size: 0.925rem;
+	padding: 0.3rem 0;
+}
+
+.teaching span {
+	color: var(--ink-mute);
+	font-size: 0.8125rem;
+	font-variant-numeric: tabular-nums;
+}
+
+/* ---------- 荣誉 ---------- */
+
+.honors {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.honors li {
+	display: grid;
+	grid-template-columns: 9.5rem 1fr;
+	gap: 1.5rem;
+	padding: 0.85rem 0;
+	border-top: 1px solid var(--rule);
+}
+
+.honors li:first-child {
+	border-top: none;
+	padding-top: 0;
+}
+
+.honors .year {
+	font-size: 0.8125rem;
+	color: var(--ink-mute);
+	font-variant-numeric: tabular-nums;
+}
+
+.honors .title {
+	font-size: 0.95rem;
+	color: var(--ink);
+}
+
+.honors .title small {
+	display: block;
+	font-size: 0.8125rem;
+	color: var(--ink-mute);
+}
+
+/* ---------- 页脚 ---------- */
+
+.page-footer {
+	margin-top: 5rem;
+	padding-top: 1.5rem;
+	border-top: 1px solid var(--rule);
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	font-size: 0.8125rem;
+	color: var(--ink-mute);
+}
+
+.page-footer a {
+	color: var(--ink-mute);
+	text-decoration: none;
+}
+
+.page-footer a:hover {
+	color: var(--accent);
+}
+
+/* ---------- 窄屏 ---------- */
+
+@media (max-width: 860px) {
+	.page {
+		grid-template-columns: 1fr;
+		gap: 3rem;
+		padding: 3rem 1.25rem 4rem;
+	}
+	.page > .sidebar {
+		position: static;
+	}
+	.section + .section {
+		margin-top: 3.5rem;
+	}
+	.exp,
+	.honors li {
+		grid-template-columns: 1fr;
+		gap: 0.4rem;
+	}
+	.section-head {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.3rem;
+	}
+}

@@ -5,7 +5,7 @@ import { profile } from '../data/profile';
 ---
 
 <aside class="sidebar">
-	<Image src={Avatar} alt={profile.nameEn} width={360} height={360} class="avatar" />
+	<Image src={Avatar} alt={profile.nameEn} width={680} height={874} class="avatar" />
 
 	<h1 class="name">{profile.nameEn}</h1>
 	{profile.nameCn && <p class="name-cn">{profile.nameCn}</p>}
@@ -68,14 +68,12 @@ import { profile } from '../data/profile';
 		text-align: center;
 	}
 
+	/* 完整原图，不裁切、不加圆角 */
 	.avatar {
-		width: 180px;
-		height: 180px;
-		border-radius: 50%;
-		object-fit: cover;
-		object-position: center 30%;
-		margin: 0 auto 1.5rem;
 		display: block;
+		width: 100%;
+		height: auto;
+		margin: 0 0 1.5rem;
 	}
 
 	.name {
@@ -153,9 +151,8 @@ import { profile } from '../data/profile';
 
 	@media (max-width: 860px) {
 		.avatar {
-			width: 132px;
-			height: 132px;
-			margin-bottom: 1rem;
+			width: 220px;
+			margin: 0 auto 1.25rem;
 		}
 		.name {
 			font-size: 1.5rem;

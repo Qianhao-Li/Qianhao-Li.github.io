@@ -9,5 +9,5 @@ export const AUTHOR = 'Qianhao Li';
 /** 导航栏和页脚的社交链接，按需增删 */
 export const SOCIAL_LINKS = {
 	github: 'https://github.com/Qianhao-Li',
-	email: 'mailto:istm47129@gmail.com',
+	email: 'mailto:liqianhao1020@gmail.com',
 };

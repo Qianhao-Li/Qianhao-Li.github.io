@@ -10,7 +10,7 @@ export const profile = {
 	/** 头像下面的两行小字 */
 	role: '本科生 · 计算机科学',
 	affiliation: 'XX 大学',
-	email: 'istm47129@gmail.com',
+	email: 'liqianhao1020@gmail.com',
 	github: 'https://github.com/Qianhao-Li',
 	/** 不需要的留空字符串就会自动隐藏 */
 	scholar: '',

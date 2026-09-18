@@ -11,7 +11,7 @@ export const profile = {
 	role: '本科生 · 计算机科学',
 	affiliation: 'XX 大学',
 	email: 'istm47129@gmail.com',
-	github: 'https://github.com/MrFlow-mean',
+	github: 'https://github.com/Qianhao-Li',
 	/** 不需要的留空字符串就会自动隐藏 */
 	scholar: '',
 	twitter: '',
@@ -70,7 +70,7 @@ export const works = {
 			byline: '独立开发',
 			description: '它解决了什么问题，有多少人用，或者你从中学到了什么。',
 			note: '',
-			links: [{ label: 'GitHub', href: 'https://github.com/MrFlow-mean' }],
+			links: [{ label: 'GitHub', href: 'https://github.com/Qianhao-Li' }],
 		},
 	],
 };

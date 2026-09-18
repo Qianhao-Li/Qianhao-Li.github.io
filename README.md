@@ -1,4 +1,4 @@
-# mrflow-mean.github.io
+# qianhao-li.github.io
 
 个人主页 + 博客。左栏个人信息 + 右栏履历/作品的学术主页风格，用 [Astro](https://astro.build) 搭建，推送到 `main` 后由 GitHub Actions 自动发布到 GitHub Pages。
 
